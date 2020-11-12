@@ -26,7 +26,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["./src/assets/js/core/jquery.min.js"]
           },
           "configurations": {
             "production": {
@@ -62,7 +62,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "client:build"
+            "browserTarget": "client:build",
           },
           "configurations": {
             "production": {
