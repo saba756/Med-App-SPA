@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "medapp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -20,20 +20,30 @@
     "@angular/platform-browser": "~10.1.2",
     "@angular/platform-browser-dynamic": "~10.1.2",
     "@angular/router": "~10.1.2",
+    "@ng-bootstrap/ng-bootstrap": "6.0.0",
+    "bootstrap": "4.2.1",
+    "chart.js": "^2.9.4",
     "core-js": "^3.7.0",
     "html-webpack-inline-source-plugin": "^1.0.0-beta.2",
+    "jquery": "^3.5.1",
+    "jw-bootstrap-switch-ng2": "2.0.4",
+    "ng2-charts": "^2.4.2",
+    "ngx-toastr": "^13.1.0",
+    "perfect-scrollbar": "^1.5.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "web-animations-js": "^2.3.2",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^10.0.1",
-    "@angular-devkit/build-angular": "^0.1100.0",
+    "@angular-devkit/build-angular": "^0.1100.2",
     "@angular/cli": "~10.1.2",
     "@angular/compiler-cli": "~10.1.2",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.19.6",
+    "@types/bootstrap": "4.2.1",
     "angular2-template-loader": "^0.6.2",
     "codelyzer": "^6.0.0",
     "css-loader": "^5.0.1",
@@ -53,8 +63,8 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.5.1"
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
