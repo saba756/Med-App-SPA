@@ -34,6 +34,7 @@ import { AccountsHeaderComponent } from './components/accounts-header/accounts-h
     SideBarComponent,
     AccountsNavbarComponent,
     AccountsFooterComponent,
-    AccountsHeaderComponent]
+    AccountsHeaderComponent
+  ]
 })
 export class SharedModule { }

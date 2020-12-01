@@ -6,8 +6,8 @@ import {AdminLayoutComponent} from './admin-layout/admin-layout.component';
 
 const routes: Routes =[
 
-  {path: '', loadChildren : () => import('./admin-layout/admin-layout.module').then(mod => mod.AdminLayoutModule)},
-  {path: 'account', loadChildren : () => import('./accounts/acoounts.module').then(mod => mod.AccountModule)},
+  {path: 'dashboard', loadChildren : () => import('./admin-layout/admin-layout.module').then(mod => mod.AdminLayoutModule)},
+  {path: '', loadChildren : () => import('./accounts/acoounts.module').then(mod => mod.AccountModule)},
   // {
   //   path: '',
   //   component: AdminLayoutComponent,

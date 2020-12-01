@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './accounts-footer.component.html',
   styleUrls: ['./accounts-footer.component.css']
 })
-export class AccountsFooterComponent implements OnInit {
+export class AccountsFooterComponent  implements OnInit {
 
   constructor() { }
 

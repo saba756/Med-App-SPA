@@ -1,0 +1,4 @@
+.background-img {
+  background-image: url('/assets/img/bg14.png');
+  filter: grayscale(100%);
+}
