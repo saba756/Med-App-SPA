@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import {SharedModule} from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
@@ -17,11 +18,11 @@ import { RouterModule } from '@angular/router';
 
   ],
   imports: [
-    FormsModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule,
     ToastrModule.forRoot()
   ],
 

@@ -26,6 +26,7 @@
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "node_modules/ngx-toastr/toastr.css",
+              "src/assets/scss/now-ui-dashboard.css",
               "src/assets/scss/now-ui-dashboard.scss",
               "src/assets/demo/demo.css"
             ],
