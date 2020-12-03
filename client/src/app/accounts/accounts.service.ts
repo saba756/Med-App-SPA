@@ -18,6 +18,7 @@ login(values: any){
   return this.http.post(this.baseUrl + 'account/login', values).pipe(
     map((user: IUser) => {
       if (user){
+        console.log("user is", user)
         localStorage.setItem('token', user.token);
         //this.currentUserSource.next(user);
       }
@@ -26,8 +27,8 @@ login(values: any){
 }
 
 register(values: any){
-  // debugger
-  return this.http.post(this.baseUrl + 'account/register', values).pipe(
+  debugger
+  return this.http.post(this.baseUrl +'account/register', values).pipe(
     map((user: IAddress) => {
       if (user){
         localStorage.setItem('token', user.token);
@@ -36,6 +37,7 @@ register(values: any){
     })
   );
 }
+
 logout(){
   localStorage.removeItem('token');
 //this.currentUserSource.next(null);

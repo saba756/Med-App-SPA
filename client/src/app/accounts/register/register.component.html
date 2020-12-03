@@ -75,6 +75,14 @@
 
                               <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()"
                                class="form" method="" action="#">
+                               <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="now-ui-icons users_circle-08"></i>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" placeholder="displayName..." formControlName="displayName">
+                            </div>
                                   <div class="input-group">
                                       <div class="input-group-prepend">
                                           <div class="input-group-text">
@@ -103,6 +111,17 @@
                                       <input type="text" class="form-control" formControlName="email"
                                       placeholder="Email...">
                                   </div>
+
+                                  <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="now-ui-icons ui-1_email-85"></i>
+                                        </div>
+                                    </div>
+                                    <input type="password" class="form-control" formControlName="password"
+                                    placeholder="Password...">
+                                </div>
+
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">

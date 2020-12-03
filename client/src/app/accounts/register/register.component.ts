@@ -17,7 +17,9 @@ export class RegisterComponent implements OnInit {
               private accountService: AccountService,
               private router: Router
              ) { }
-
+              get displayName () {
+                return this.registerForm.get('displayName')
+              }
              get email () {
               return this.registerForm.get('email')
             }
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
             }
   ngOnInit(): void {
                 this.createRegisterForm();
-                console.log("hey", this.createRegisterForm());
+                console.log('hey', this.createRegisterForm());
               }
 
   createRegisterForm() {
@@ -63,11 +65,11 @@ export class RegisterComponent implements OnInit {
                });
              }
              onSubmit(){
-               console.log(" naviagting ....")
-              this.accountService.register(this.registerForm.value).subscribe(
+               debugger
+               this.accountService.register(this.registerForm.value).subscribe(
                 response =>{
-                  console.log(response);
-                 this.router.navigateByUrl('');
+                  console.log("response ", response);
+                  this.router.navigateByUrl('account');
                 }, error =>{
                   console.log(error);
                   this.errors = error.errors;
