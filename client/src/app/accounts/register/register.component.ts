@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../accounts.service';
 
 
@@ -15,11 +16,10 @@ export class RegisterComponent implements OnInit {
   errors: string[];
   constructor(private fb: FormBuilder,
               private accountService: AccountService,
-              private router: Router
+              private router: Router,
+              private toastrService: ToastrService
              ) { }
-              get displayName () {
-                return this.registerForm.get('displayName')
-              }
+
              get email () {
               return this.registerForm.get('email')
             }
@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
 
   createRegisterForm() {
   this.registerForm = this.fb.group({
-                 displayName: [null , [Validators.required]],
                  email: [null,
                   [Validators.required,Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[0\\w-]{2,4}$')]
                   ],
@@ -65,10 +64,11 @@ export class RegisterComponent implements OnInit {
                });
              }
              onSubmit(){
-               debugger
+
                this.accountService.register(this.registerForm.value).subscribe(
                 response =>{
                   console.log("response ", response);
+                  this.toastrService.success('Register successfully')
                   this.router.navigateByUrl('account');
                 }, error =>{
                   console.log(error);

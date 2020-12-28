@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IUser } from 'src/app/shared/models/user';
 import { AccountService } from '../accounts.service';
 
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   user: IUser;
   constructor(
     private accountService: AccountService,
+    private toastrService: ToastrService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
@@ -43,9 +45,16 @@ export class LoginComponent implements OnInit {
     const reqObj = this.loginForm.value;
     this.accountService.login(reqObj).subscribe(
       (res:any) => {
-        this.user = res;
-        console.log("login data is",this.user);
-        this.router.navigateByUrl('');
+          if (res) {
+            this.toastrService.success('Login successfully')
+            this.user = res;
+            setTimeout(() => {
+              this.router.navigateByUrl('')
+            }, 1000);
+
+          } else {
+            this.toastrService.error('Login Failed!')
+          }
       },
       (error) => {
         console.log(error);

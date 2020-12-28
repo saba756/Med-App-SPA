@@ -1,7 +1,7 @@
 export interface IAddress {
   email: string;
-  displayname: string;
-  token: string;
+  accessToken: string;
+  refreshToken: string;
   firstName: string;
   lastName: string;
   city: string;
