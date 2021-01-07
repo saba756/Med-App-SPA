@@ -7,6 +7,7 @@ import {IUser} from './../shared/models/user';
 import {environment} from './../../environments/environment';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { IToken } from '../shared/models/token';
 @Injectable({
   providedIn: 'root'
 })
@@ -50,5 +51,8 @@ logout(){
   localStorage.removeItem('refresh-token');
 //this.currentUserSource.next(null);
   this.router.navigateByUrl('/');
+}
+newRefreshToken(token: IToken){
+ return this.http.post(this.baseUrl + 'token/refresh',token);
 }
 }

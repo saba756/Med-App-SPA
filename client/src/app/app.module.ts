@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpInterceptorService } from './shared/interceptor/http-interceptor.service';
+import { AuthGuard } from './shared/gaurds/auth-gaurd.service';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { CookieService } from 'ngx-cookie-service';
     ToastrModule.forRoot(), // ToastrModule added
   ],
 
-  providers: [CookieService],
+  providers: [AuthGuard,
+    // { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
+    CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
