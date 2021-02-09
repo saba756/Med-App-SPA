@@ -4,4 +4,6 @@ export interface IToken {
   refreshToken: string;
   refreshTokenExpiryTime :Date
   userType:string
+
+
 }
