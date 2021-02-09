@@ -26,10 +26,11 @@ export class AuthGuard implements CanActivate {
 
   async canActivate() {
    const  accessToken = this.cookieService.get('access-token');
-   if (accessToken && !this.jwtHelper.isTokenExpired(accessToken)) {
-    console.log(this.jwtHelper.decodeToken(accessToken));
-    return true;
-  }
+    if (accessToken && !this.jwtHelper.isTokenExpired(accessToken)) {
+      console.log(this.jwtHelper.decodeToken(accessToken));
+      return true;
+    }
+
     const isRefreshSuccess = await this.tryRefreshingTokens();
     console.log(" isRefreshSuccess ", isRefreshSuccess)
     if (!isRefreshSuccess) {
