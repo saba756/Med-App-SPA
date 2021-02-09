@@ -1,4 +1,4 @@
-<div class="panel-header panel-header-lg">
+<!-- <div class="panel-header panel-header-lg">
     <canvas baseChart id="bigDashboardChart"
                 [datasets]="lineBigDashboardChartData"
                 [labels]="lineBigDashboardChartLabels"
@@ -7,7 +7,7 @@
                 [chartType]="lineBigDashboardChartType"
                 (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)"></canvas>
-</div>
+</div> -->
 
 <div class="main-content">
   <div class="row">
@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="chart-area">
+          <!-- <div class="chart-area">
             <canvas baseChart id="lineChartExample"
                         [datasets]="lineChartData"
                         [labels]="lineChartLabels"
@@ -38,7 +38,7 @@
                         [chartType]="lineChartType"
                         (chartHover)="chartHovered($event)"
                         (chartClick)="chartClicked($event)"></canvas>
-          </div>
+          </div> -->
         </div>
         <div class="card-footer">
           <div class="stats">
@@ -65,9 +65,9 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="chart-area">
+          <!-- <div class="chart-area"> -->
             <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
-            <canvas baseChart id="lineChartExampleWithNumbersAndGrid"
+            <!-- <canvas baseChart id="lineChartExampleWithNumbersAndGrid"
                         [datasets]="lineChartWithNumbersAndGridData"
                         [labels]="lineChartWithNumbersAndGridLabels"
                         [colors]="lineChartWithNumbersAndGridColors"
@@ -75,7 +75,7 @@
                         [chartType]="lineChartWithNumbersAndGridType"
                         (chartHover)="chartHovered($event)"
                         (chartClick)="chartClicked($event)"></canvas>
-          </div>
+          </div> -->
         </div>
         <div class="card-footer">
           <div class="stats">
@@ -91,7 +91,7 @@
           <h4 class="card-title">24 Hours Performance</h4>
         </div>
         <div class="card-body">
-          <div class="chart-area">
+          <!-- <div class="chart-area">
             <canvas baseChart id="barChartSimpleGradientsNumbers"
                         [datasets]="lineChartGradientsNumbersData"
                         [labels]="lineChartGradientsNumbersLabels"
@@ -100,7 +100,7 @@
                         [chartType]="lineChartGradientsNumbersType"
                         (chartHover)="chartHovered($event)"
                         (chartClick)="chartClicked($event)"></canvas>
-          </div>
+          </div> -->
         </div>
         <div class="card-footer">
           <div class="stats">
@@ -196,101 +196,50 @@
         <div class="card-header">
           <h5 class="card-category">All Persons List</h5>
           <h4 class="card-title"> Employees Stats</h4>
+          <button class="btn btn-default" (click)="resetFilter()">Reset</button>
         </div>
 
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                <th>
-                  Name
-                </th>
-                <th>
-                  Country
-                </th>
-                <th>
-                  City
-                </th>
-                <th class="text-right">
-                  Salary
-                </th>
+                <tr>
+                    <th *ngFor="let c of columns">
+                    <div *ngIf="c.isSortable" (click)="sortBy(c.key)">
+                      {{c.title}}
+                      <i *ngIf="query.sortBy === c.key"
+                      class="fa"
+                      [class.fa-sort-asc]="query.isSortAscending"
+                      [class.fa-sort-desc]="!query.isSortAscending"
+                      ></i>
+                    </div>
+                      <div *ngIf="!c.isSortable">
+                          {{c.title}}
+                      </div>
+                  </th>
+
+                </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    Dakota Rice
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td class="text-right">
-                    $36,738
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td class="text-right">
-                    $23,789
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td class="text-right">
-                    $56,142
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td class="text-right">
-                    $63,542
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $78,615
-                  </td>
+                <tr *ngFor="let v of queryResult.items">
+
+                  <td>{{ v.firstName }}</td>
+                  <td>{{ v.email }}</td>
+                  <td>{{ v.city }}</td>
+                  <td>{{ v.phoneNo }}</td>
                 </tr>
               </tbody>
             </table>
+            <app-pagination
+[total-items]="queryResult.totalItems"
+[page-size]="query.pageSize"
+(page-changed)="onPageChange($event)"
+></app-pagination>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
 </div>

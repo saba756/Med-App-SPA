@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AccountsFooterComponent } from './components/accounts-footer/accounts-footer.component';
 import { AccountsHeaderComponent } from './components/accounts-header/accounts-header.component';
 import { RouterModule } from '@angular/router';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   imports: [
@@ -24,13 +25,16 @@ import { RouterModule } from '@angular/router';
   declarations: [
     FooterComponent,
     NavbarComponent,
+    PaginationComponent,
     SideBarComponent,
     AccountsFooterComponent,
-    AccountsHeaderComponent
+    AccountsHeaderComponent,
+    PaginationComponent
   ],
   exports:
   [FormsModule,
     ReactiveFormsModule,
+    PaginationComponent,
     FooterComponent,
     NavbarComponent,
     SideBarComponent,
